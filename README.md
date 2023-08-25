@@ -36,7 +36,7 @@ Lists the packages (ALL components and applications).
 
 Individual package selection to terminate the application.
 
-Cache cleaning set to 2GB.
+Cache cleaning set to 5GB.
 
 No ROOT required.
 
