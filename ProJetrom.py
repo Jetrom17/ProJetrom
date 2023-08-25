@@ -28,11 +28,12 @@ def forcar_parada_todos():
             forcar_parada(pacote)
         sg.popup("Todos os pacotes foram forçados a parar.")
 
-# Função para trim-caches com valor definido
-def trim_caches(valor):
+# Função para trim-caches com valor definido em GB
+def trim_caches_gb(valor_gb):
     try:
-        subprocess.check_output(["adb", "shell", "pm", "trim-caches", valor])
-        return "Caches limpos com sucesso (valor: {}).".format(valor)
+        valor_megabytes = valor_gb * 5000  # Convertendo de GB para MB
+        subprocess.check_output(["adb", "shell", "pm", "trim-caches", str(int(valor_megabytes)) + "M"])
+        return "Caches limpos com sucesso (valor: {} GB).".format(valor_gb)
     except Exception as e:
         return "Erro ao limpar caches: {}".format(str(e))
 
@@ -47,7 +48,7 @@ layout = [
     [sg.Text("Selecione um pacote para forçar a parada:")],
     [sg.Listbox(values=[], size=(40, 30), key="-PACOTES-"), sg.Image(r'logo.png', size=(500, 500))],
     [sg.Text("Sobre o programa:"), sg.Text(" Link", text_color="blue", enable_events=True, key="-LINK-")],
-    [sg.Button("Listar Pacotes"), sg.Button("Forçar Parada"), sg.Button("Forçar Parada em Todos"), sg.Button("Limpar caches 2GB"), sg.Button("Sair")]
+    [sg.Button("Listar Pacotes"), sg.Button("Forçar Parada"), sg.Button("Forçar Parada em Todos"), sg.Button("Limpar caches 5GB"), sg.Button("Sair")]
 ]
 
 # Janela da interface gráfica
