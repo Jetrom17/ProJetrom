@@ -14,7 +14,7 @@ Lista os pacotes (TODOS componentes e aplicações).
 
 Seleção de pacote individual para encerrar o aplicativo.
 
-Limpeza de cache definido por 2GB.
+Limpeza de cache definido por 5GB.
 
 Não precisa de ROOT.
 
